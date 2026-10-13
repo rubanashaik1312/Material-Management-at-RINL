@@ -1,10 +1,10 @@
 # Material-Management
 Inventory Optimization &amp; Stockout Analysis : Analyzing ₹1,280 crore worth of inventory, identify stockout risks, assess supplier lead-time variability, and optimize reorder points to improve inventory management and supply-chain efficiency.
 """
-RINL Visakhapatnam Steel Plant - Inventory & Stockout Analysis
+Inventory & Stockout Analysis
 ================================================================
 Reproduces the analysis in Chapters 5-6 of the project report
-"Material Management at RINL Visakhapatnam Steel Plant".
+"Material Management at XYZ".
 
 Materials : Coking Coal (CC), Limestone (LS), Iron Ore Fines (IOF)
 Data      : 10 fortnightly stock snapshots, 01-Nov-2024 to 16-Mar-2025 (Annexure A)
@@ -12,7 +12,7 @@ Data      : 10 fortnightly stock snapshots, 01-Nov-2024 to 16-Mar-2025 (Annexure
 Outputs   : console report, CSV tables and PNG charts in ./output/
 
 Requirements:  pip install pandas numpy matplotlib
-Run         :  python rinl_inventory_stockout_analysis.py
+Run         :  python xyz_inventory_stockout_analysis.py
 """
 
 from pathlib import Path
@@ -47,13 +47,8 @@ snapshots = pd.DataFrame(
 # ---------------------------------------------------------------------------
 # 2. PARAMETERS  (Chapters 2.5, 5.3, 5.5-5.7, 6.2)
 # ---------------------------------------------------------------------------
-PARAMS = {
-    "Coking Coal": dict(
-        code="CC", daily_use=9321, norm_days=45,
-        lt_avg=45, lt_max=60,           # days (range 7-60 across origins)
-        cost_per_t=25000,               # Rs / tonne
-        holding_pct=0.1454,
-    ),
+PARAMS = {"Coking Coal": dict(code="CC", daily_use=9321, norm_days=45,lt_avg=45, lt_max=60,# days (range 7-60 across origins) cost_per_t=25000,# Rs / tonne
+        holding_pct=0.1454)
     "Limestone": dict(
         code="LS", daily_use=3645, norm_days=15,
         lt_avg=27, lt_max=35,           # UAE single source
